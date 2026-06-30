@@ -197,7 +197,7 @@ function init() {
 
   const book = getData().books.find(b => b.id === bookId);
   if (book) {
-    document.title = `${book.title} | Folio & Ink`;
+    document.title = `${book.title} | [App Name]`;
     renderBook(book);
   } else {
     renderNotFound();

@@ -23,7 +23,7 @@ function renderChapter(book, chapter) {
 
   document.getElementById('back-to-book-link').href = backUrl;
   document.getElementById('back-to-book-btn').href  = backUrl;
-  document.title = `${chapter.title} | ${book.title} | Folio & Ink`;
+  document.title = `${chapter.title} | ${book.title} | [App Name]`;
 
   // Past summaries panel
   const pastChapters = book.chapters.slice(0, chIdx);

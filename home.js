@@ -77,7 +77,7 @@ function exportJSON() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'folio-ink-export.json';
+  a.download = 'library-export.json';
   a.click();
   URL.revokeObjectURL(url);
 }

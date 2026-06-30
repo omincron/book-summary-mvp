@@ -4,14 +4,14 @@ function genId() {
 
 function getData() {
   try {
-    return JSON.parse(localStorage.getItem('folio_ink_data') || '{"books":[]}');
+    return JSON.parse(localStorage.getItem('app_data') || '{"books":[]}');
   } catch (e) {
     return { books: [] };
   }
 }
 
 function saveData(data) {
-  localStorage.setItem('folio_ink_data', JSON.stringify(data));
+  localStorage.setItem('app_data', JSON.stringify(data));
 }
 
 function esc(value) {
