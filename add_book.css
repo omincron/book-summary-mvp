@@ -3,10 +3,13 @@
 }
 
 .manuscript-input {
-  border-bottom: 1px solid #74777d;
-  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+  background-color: rgba(22, 40, 57, 0.05);
   caret-color: #162839;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .manuscript-input::placeholder {
@@ -15,8 +18,26 @@
 }
 
 .manuscript-input:focus {
-  border-bottom: 2px solid #162839;
-  background-color: rgba(251, 249, 244, 0.5);
+  background-color: rgba(22, 40, 57, 0.07);
+  box-shadow: 0 0 0 2px rgba(22, 40, 57, 0.18);
+  outline: none;
+}
+
+.search-input {
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(22, 40, 57, 0.05);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: #74777d;
+  opacity: 0.5;
+}
+
+.search-input:focus {
+  background-color: rgba(22, 40, 57, 0.07);
+  box-shadow: 0 0 0 2px rgba(22, 40, 57, 0.18);
   outline: none;
 }
 
