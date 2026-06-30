@@ -1,7 +1,8 @@
 .book-shadow {
   box-shadow:
-    15px 15px 30px -10px rgba(44, 62, 80, 0.1),
-    5px 5px 10px -5px rgba(44, 62, 80, 0.05);
+    -6px 0 12px -6px rgba(0, 0, 0, 0.18),
+    20px 20px 36px -10px rgba(44, 62, 80, 0.14),
+    6px 6px 12px -5px rgba(44, 62, 80, 0.06);
 }
 
 .ambient-card {

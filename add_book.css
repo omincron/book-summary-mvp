@@ -5,7 +5,13 @@
 .manuscript-input {
   border-bottom: 1px solid #74777d;
   background: transparent;
-  transition: all 0.2s ease;
+  caret-color: #162839;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.manuscript-input::placeholder {
+  color: #74777d;
+  opacity: 0.5;
 }
 
 .manuscript-input:focus {

@@ -115,7 +115,7 @@
     <nav class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-container-max mx-auto">
       <a href="home.html" class="font-headline-md text-headline-md text-primary tracking-tight">[App Name]</a>
       <div class="flex items-center gap-4">
-        <button class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity">search</button>
+        <button class="material-symbols-outlined text-primary p-2 rounded-full transition-colors hover:bg-surface-container-low">search</button>
       </div>
     </nav>
   </header>
@@ -127,16 +127,16 @@
         <p class="font-body-md text-on-surface-variant max-w-xl">A curated collection of your intellectual journeys, summarized for clarity and focus.</p>
       </div>
       <div class="flex flex-wrap items-center gap-3">
-        <button onclick="exportJSON()" class="flex items-center gap-2 border border-secondary text-secondary px-5 py-3 rounded-DEFAULT font-label-md hover:bg-secondary hover:text-on-secondary transition-all duration-300">
+        <button onclick="exportJSON()" class="flex items-center gap-2 border border-secondary text-secondary px-5 py-3 rounded-DEFAULT font-label-md hover:bg-secondary hover:text-on-secondary transition-colors duration-200">
           <span class="material-symbols-outlined text-[18px]">download</span>
           EXPORT JSON
         </button>
-        <label class="flex items-center gap-2 border border-secondary text-secondary px-5 py-3 rounded-DEFAULT font-label-md hover:bg-secondary hover:text-on-secondary transition-all duration-300 cursor-pointer">
+        <label class="flex items-center gap-2 border border-secondary text-secondary px-5 py-3 rounded-DEFAULT font-label-md hover:bg-secondary hover:text-on-secondary transition-colors duration-200 cursor-pointer">
           <span class="material-symbols-outlined text-[18px]">upload</span>
           IMPORT JSON
           <input type="file" accept=".json" onchange="importJSON(event)" class="hidden" />
         </label>
-        <a href="add_book.html" class="flex items-center gap-2 border border-primary text-primary px-6 py-3 rounded-DEFAULT font-label-md hover:bg-primary hover:text-on-primary transition-all duration-300">
+        <a href="add_book.html" class="flex items-center gap-2 border border-primary text-primary px-6 py-3 rounded-DEFAULT font-label-md hover:bg-primary hover:text-on-primary transition-colors duration-200">
           <span class="material-symbols-outlined">add</span>
           ADD NEW BOOK
         </a>

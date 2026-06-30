@@ -1,3 +1,18 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid #162839;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   display: inline-block;
