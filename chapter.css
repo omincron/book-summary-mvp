@@ -1,0 +1,12 @@
+.marginalia-active {
+  border-left: 2px solid #4c6b60;
+}
+
+.paper-elevation {
+  box-shadow: 0 20px 40px -15px rgba(44, 62, 80, 0.04);
+  border: 1px solid rgba(22, 40, 57, 0.1);
+}
+
+.sidebar-transition {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

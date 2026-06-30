@@ -1,0 +1,14 @@
+.book-shadow {
+  box-shadow:
+    15px 15px 30px -10px rgba(44, 62, 80, 0.1),
+    5px 5px 10px -5px rgba(44, 62, 80, 0.05);
+}
+
+.ambient-card {
+  box-shadow: 0 20px 40px -15px rgba(44, 62, 80, 0.04);
+  border: 1px solid rgba(44, 62, 80, 0.1);
+}
+
+.marginalia-active {
+  border-left: 3px solid #46645a;
+}

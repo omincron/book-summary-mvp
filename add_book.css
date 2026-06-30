@@ -1,0 +1,23 @@
+.ambient-shadow {
+  box-shadow: 0 20px 40px -15px rgba(44, 62, 80, 0.04);
+}
+
+.manuscript-input {
+  border-bottom: 1px solid #74777d;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.manuscript-input:focus {
+  border-bottom: 2px solid #162839;
+  background-color: rgba(251, 249, 244, 0.5);
+  outline: none;
+}
+
+.marginalia-line {
+  border-left: 2px solid #46645a;
+}
+
+.zebra-striping div:nth-child(even) {
+  background-color: rgba(245, 243, 238, 0.5);
+}

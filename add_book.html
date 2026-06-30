@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Add New Book | Folio &amp; Ink</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="add_book.css" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'on-tertiary-container':      '#ff8371',
+            'on-tertiary':                '#ffffff',
+            'on-secondary-container':     '#4c6b60',
+            'outline-variant':            '#c4c6cd',
+            'error':                      '#ba1a1a',
+            'surface-dim':                '#dbdad5',
+            'on-secondary-fixed-variant': '#2f4c43',
+            'on-surface-variant':         '#43474c',
+            'secondary':                  '#46645a',
+            'surface-container-lowest':   '#ffffff',
+            'background':                 '#fbf9f4',
+            'tertiary-fixed-dim':         '#ffb4a8',
+            'on-secondary':               '#ffffff',
+            'on-background':              '#1b1c19',
+            'inverse-on-surface':         '#f2f1ec',
+            'on-primary':                 '#ffffff',
+            'on-surface':                 '#1b1c19',
+            'surface-tint':               '#4e6073',
+            'primary':                    '#162839',
+            'inverse-surface':            '#30312e',
+            'primary-container':          '#2c3e50',
+            'on-primary-container':       '#96a9be',
+            'tertiary':                   '#570000',
+            'surface-container-high':     '#eae8e3',
+            'surface-container':          '#f0eee9',
+            'on-error-container':         '#93000a',
+            'secondary-fixed':            '#c8eadd',
+            'secondary-fixed-dim':        '#adcec1',
+            'outline':                    '#74777d',
+            'on-secondary-fixed':         '#012018',
+            'tertiary-fixed':             '#ffdad4',
+            'surface-bright':             '#fbf9f4',
+            'primary-fixed-dim':          '#b5c8df',
+            'on-primary-fixed-variant':   '#36485b',
+            'on-error':                   '#ffffff',
+            'error-container':            '#ffdad6',
+            'on-tertiary-fixed-variant':  '#920703',
+            'tertiary-container':         '#800000',
+            'on-primary-fixed':           '#091d2e',
+            'primary-fixed':              '#d1e4fb',
+            'secondary-container':        '#c8eadd',
+            'surface-container-highest':  '#e4e2dd',
+            'surface-container-low':      '#f5f3ee',
+            'surface':                    '#fbf9f4',
+            'on-tertiary-fixed':          '#410000',
+            'inverse-primary':            '#b5c8df',
+            'surface-variant':            '#e4e2dd',
+          },
+          borderRadius: {
+            DEFAULT: '0.125rem',
+            lg:      '0.25rem',
+            xl:      '0.5rem',
+            full:    '0.75rem',
+          },
+          spacing: {
+            'margin-mobile':  '16px',
+            'base':           '8px',
+            'margin-desktop': '48px',
+            'stack-sm':       '12px',
+            'stack-md':       '24px',
+            'stack-lg':       '48px',
+            'gutter':         '24px',
+            'container-max':  '1140px',
+          },
+          fontFamily: {
+            'headline-lg-mobile': ['Playfair Display'],
+            'headline-lg':        ['Playfair Display'],
+            'headline-md':        ['Playfair Display'],
+            'body-lg':            ['"Source Serif 4"'],
+            'body-md':            ['"Source Serif 4"'],
+            'label-md':           ['Inter'],
+            'label-sm':           ['Inter'],
+          },
+          fontSize: {
+            'headline-lg-mobile': ['30px', { lineHeight: '1.2',  fontWeight: '700' }],
+            'headline-lg':        ['40px', { lineHeight: '1.2',  letterSpacing: '-0.02em', fontWeight: '700' }],
+            'headline-md':        ['28px', { lineHeight: '1.3',  fontWeight: '600' }],
+            'body-lg':            ['18px', { lineHeight: '1.6',  fontWeight: '400' }],
+            'body-md':            ['16px', { lineHeight: '1.6',  fontWeight: '400' }],
+            'label-md':           ['14px', { lineHeight: '20px', letterSpacing: '0.02em', fontWeight: '500' }],
+            'label-sm':           ['12px', { lineHeight: '16px', letterSpacing: '0.05em', fontWeight: '600' }],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-background text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+
+  <header class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/10 shadow-[0_20px_40px_-15px_rgba(44,62,80,0.04)]">
+    <nav class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-container-max mx-auto">
+      <a href="home.html" class="font-headline-md text-headline-md text-primary tracking-tight">Folio &amp; Ink</a>
+      <div class="flex items-center gap-6">
+        <button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">search</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-container-max mx-auto px-margin-desktop py-stack-lg flex flex-col md:flex-row gap-stack-lg">
+
+    <!-- Left Column: Cover & Metadata -->
+    <aside class="md:w-1/3 flex flex-col gap-stack-md">
+      <div
+        class="relative group aspect-[2/3] bg-surface-container-low border border-outline-variant/10 rounded overflow-hidden flex items-center justify-center cursor-pointer ambient-shadow"
+        onclick="document.getElementById('cover-url-input').focus()"
+      >
+        <div class="z-10 flex flex-col items-center gap-2" id="cover-placeholder">
+          <span class="material-symbols-outlined text-outline text-4xl">add_a_photo</span>
+          <span class="font-label-md text-label-md text-on-surface-variant">Add Cover Image URL</span>
+        </div>
+        <img id="cover-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="Cover preview" />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label class="font-label-sm text-label-sm text-outline">Cover Image URL (optional)</label>
+        <input
+          id="cover-url-input"
+          type="url"
+          placeholder="https://example.com/cover.jpg"
+          class="manuscript-input font-body-md text-body-md py-2 w-full"
+          oninput="updateCoverPreview(this.value)"
+        />
+      </div>
+      <div class="flex flex-col gap-stack-sm p-stack-md bg-surface-container-lowest border border-outline-variant/10 ambient-shadow">
+        <p class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Quick Tags</p>
+        <div class="flex flex-wrap gap-2" id="genre-tags">
+          <!-- Populated by add_book.js -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Column: The Entry Form -->
+    <section class="flex-1 max-w-[750px]">
+      <header class="mb-stack-lg">
+        <h1 class="font-headline-lg text-headline-lg text-primary mb-2" id="page-heading">New Manuscript</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">Define the soul of your literary endeavor.</p>
+      </header>
+
+      <form class="flex flex-col gap-stack-lg" onsubmit="return false;">
+
+        <!-- Main Details -->
+        <div class="grid grid-cols-1 gap-stack-md">
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-outline">Book Title</label>
+            <input id="book-title" class="manuscript-input font-headline-md text-headline-md text-primary py-2 w-full" placeholder="The Echoes of Archival Silence" type="text" />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-outline">Author</label>
+            <input id="book-author" class="manuscript-input font-body-lg text-body-lg text-on-surface py-2 w-full" placeholder="Julian Thorne" type="text" />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-outline">Synopsis</label>
+            <textarea id="book-synopsis" class="manuscript-input font-body-md text-body-md py-2 w-full resize-none" rows="3" placeholder="A brief overview of your manuscript..."></textarea>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-outline">Genre</label>
+            <input id="book-genre" class="manuscript-input font-body-md text-body-md text-on-surface py-2 w-full" placeholder="Fiction, Mystery, etc." type="text" oninput="updateGenreTags(this.value)" />
+          </div>
+        </div>
+
+        <!-- Chapters Section -->
+        <div class="mt-stack-lg border-t border-outline-variant/10 pt-stack-lg">
+          <div class="flex justify-between items-end mb-stack-md">
+            <h2 class="font-headline-md text-headline-md text-primary">Chapters</h2>
+            <button class="flex items-center gap-2 text-primary font-label-md hover:underline transition-all" onclick="addChapter()" type="button">
+              <span class="material-symbols-outlined">add</span> Add Chapter
+            </button>
+          </div>
+          <div class="flex flex-col gap-stack-sm" id="chapters-list">
+            <p class="font-body-md text-on-surface-variant/60 italic text-sm" id="no-chapters-msg">No chapters yet. Click "Add Chapter" to begin.</p>
+          </div>
+        </div>
+
+        <!-- Glossary & Characters -->
+        <div class="mt-stack-lg grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+
+          <!-- Glossary -->
+          <div class="bg-surface-container-low border border-outline-variant/10 p-stack-md ambient-shadow flex flex-col gap-stack-sm">
+            <div class="flex justify-between items-center">
+              <h3 class="font-headline-md text-[20px] text-primary">Glossary</h3>
+              <button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" type="button" onclick="addGlossaryEntry()">add_circle</button>
+            </div>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+              <input id="glossary-search" class="w-full bg-white/50 border border-outline-variant/10 rounded px-8 py-1.5 font-label-sm text-label-sm" placeholder="Search terms..." type="text" oninput="filterList('glossary-list', this.value)" />
+            </div>
+            <div class="zebra-striping flex flex-col mt-2" id="glossary-list"></div>
+          </div>
+
+          <!-- Characters -->
+          <div class="bg-surface-container-low border border-outline-variant/10 p-stack-md ambient-shadow flex flex-col gap-stack-sm">
+            <div class="flex justify-between items-center">
+              <h3 class="font-headline-md text-[20px] text-primary">Characters</h3>
+              <button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" type="button" onclick="addCharacterEntry()">person_add</button>
+            </div>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+              <input id="characters-search" class="w-full bg-white/50 border border-outline-variant/10 rounded px-8 py-1.5 font-label-sm text-label-sm" placeholder="Search cast..." type="text" oninput="filterList('characters-list', this.value)" />
+            </div>
+            <div class="zebra-striping flex flex-col mt-2" id="characters-list"></div>
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="mt-stack-lg flex flex-wrap justify-end gap-stack-md pt-stack-md border-t border-outline-variant/10">
+          <button class="px-6 py-3 rounded-full border border-secondary text-secondary font-label-md hover:bg-secondary/5 transition-all" type="button" onclick="exportSingleBook()">
+            <span class="material-symbols-outlined text-[16px] align-middle mr-1">download</span>Export JSON
+          </button>
+          <button class="px-8 py-3 rounded-full bg-primary text-on-primary font-label-md hover:opacity-90 transition-all" type="submit" onclick="saveBookToStorage()">Publish Manuscript</button>
+        </div>
+
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-surface-container-lowest border-t border-outline-variant/5 py-12 mt-stack-lg">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-stack-md">
+      <span class="text-label-md font-label-md font-bold text-primary">Folio &amp; Ink</span>
+      <p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Folio &amp; Ink. All rights reserved.</p>
+      <div class="flex gap-stack-md">
+        <a class="font-label-sm text-label-sm text-outline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+        <a class="font-label-sm text-label-sm text-outline hover:text-primary transition-colors" href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chapter Modal -->
+  <div class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-on-surface/40 backdrop-blur-sm p-4" id="chapter-modal">
+    <div class="bg-surface w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded shadow-2xl border border-outline-variant/20 flex flex-col">
+      <header class="p-6 border-b border-outline-variant/10 flex justify-between items-center sticky top-0 bg-surface z-10">
+        <h2 class="font-headline-md text-primary" id="modal-heading">Edit Chapter</h2>
+        <button class="material-symbols-outlined text-outline hover:text-primary" onclick="closeChapterModal()">close</button>
+      </header>
+      <div class="p-8 flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-outline uppercase tracking-widest">Chapter Title</label>
+            <input id="modal-chapter-title" class="manuscript-input font-body-lg text-body-lg font-bold py-2 w-full" placeholder="Chapter title..." type="text" />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-outline uppercase tracking-widest">Before you enter this chapter</label>
+            <textarea id="modal-preface" class="manuscript-input font-body-md py-2 resize-none" placeholder="Visual cues, emotional tone, or context notes..." rows="2"></textarea>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-outline uppercase tracking-widest">Summary</label>
+            <textarea id="modal-summary" class="manuscript-input font-body-md py-2 resize-none" placeholder="Key plot movements and character shifts..." rows="4"></textarea>
+          </div>
+        </div>
+
+        <!-- Modal Glossary -->
+        <div class="border-t border-outline-variant/10 pt-6">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-headline-md text-[20px] text-primary">Chapter Glossary</h3>
+            <button class="text-primary font-label-sm flex items-center gap-1 hover:underline" type="button" onclick="addModalGlossaryEntry()">
+              <span class="material-symbols-outlined text-sm">add</span> Add Term
+            </button>
+          </div>
+          <div class="flex flex-col gap-3" id="modal-glossary-list"></div>
+        </div>
+
+        <!-- Modal Characters -->
+        <div class="border-t border-outline-variant/10 pt-6">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-headline-md text-[20px] text-primary">Chapter Characters</h3>
+            <button class="text-primary font-label-sm flex items-center gap-1 hover:underline" type="button" onclick="addModalCharacterEntry()">
+              <span class="material-symbols-outlined text-sm">add</span> Add Character
+            </button>
+          </div>
+          <div class="flex flex-col gap-3" id="modal-characters-list"></div>
+        </div>
+      </div>
+      <footer class="p-6 border-t border-outline-variant/10 flex justify-end gap-4 bg-surface-container-lowest sticky bottom-0">
+        <button class="px-6 py-2 rounded-full border border-outline text-on-surface-variant font-label-md hover:bg-surface-container transition-colors" onclick="closeChapterModal()">Cancel</button>
+        <button class="px-8 py-2 rounded-full bg-primary text-on-primary font-label-md hover:opacity-90 transition-all" onclick="saveChapterModal()">Save Chapter</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="shared.js"></script>
+  <script src="add_book.js"></script>
+</body>
+</html>
