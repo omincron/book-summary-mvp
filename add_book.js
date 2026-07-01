@@ -17,7 +17,7 @@ function saveBook(b) {
 
 let book = {
   id: genId(), title: '', author: '', synopsis: '', genre: '', coverUrl: '',
-  chapters: [], glossary: [], characters: [], createdAt: new Date().toISOString(),
+  chapters: [], createdAt: new Date().toISOString(),
 };
 let editingChapterId = null;
 let isNewChapter = false;
@@ -43,8 +43,6 @@ function init() {
     }
   }
   renderChapterList();
-  renderGlossaryList();
-  renderCharacterList();
 }
 
 // ─── Cover ────────────────────────────────────────────────────────────────────
@@ -246,85 +244,6 @@ function addModalCharacterEntry() {
 function deleteModalCharacterEntry(idx) {
   modalCharacters.splice(idx, 1);
   renderModalCharacters();
-}
-
-// ─── Book-level Glossary ──────────────────────────────────────────────────────
-
-function renderGlossaryList() {
-  const list = document.getElementById('glossary-list');
-  if (!book.glossary.length) {
-    list.innerHTML = '<p class="font-label-sm text-on-surface-variant/60 italic text-sm p-2">No terms yet.</p>';
-    return;
-  }
-  list.innerHTML = book.glossary.map((g, idx) => `
-    <div class="flex gap-2 items-start p-2 border-b border-outline-variant/10"
-         data-searchable="${esc(g.term)} ${esc(g.definition)}">
-      <div class="flex-1 min-w-0 flex flex-col gap-1">
-        <input type="text" value="${esc(g.term)}" placeholder="Term"
-          class="manuscript-input font-label-md py-0.5 w-full"
-          oninput="book.glossary[${idx}].term = this.value; this.closest('[data-searchable]').setAttribute('data-searchable', book.glossary[${idx}].term + ' ' + book.glossary[${idx}].definition)"/>
-        <input type="text" value="${esc(g.definition)}" placeholder="Definition"
-          class="manuscript-input font-body-md text-sm py-0.5 w-full text-on-surface-variant"
-          oninput="book.glossary[${idx}].definition = this.value; this.closest('[data-searchable]').setAttribute('data-searchable', book.glossary[${idx}].term + ' ' + book.glossary[${idx}].definition)"/>
-      </div>
-      <button class="material-symbols-outlined text-sm text-outline hover:text-error flex-shrink-0 mt-1" onclick="deleteGlossaryEntry(${idx})">delete</button>
-    </div>`).join('');
-}
-
-function addGlossaryEntry() {
-  book.glossary.push({ id: genId(), term: '', definition: '' });
-  renderGlossaryList();
-  const inputs = document.getElementById('glossary-list').querySelectorAll('input');
-  if (inputs.length) inputs[inputs.length - 2].focus();
-}
-
-function deleteGlossaryEntry(idx) {
-  book.glossary.splice(idx, 1);
-  renderGlossaryList();
-}
-
-// ─── Book-level Characters ────────────────────────────────────────────────────
-
-function renderCharacterList() {
-  const list = document.getElementById('characters-list');
-  if (!book.characters.length) {
-    list.innerHTML = '<p class="font-label-sm text-on-surface-variant/60 italic text-sm p-2">No characters yet.</p>';
-    return;
-  }
-  list.innerHTML = book.characters.map((c, idx) => `
-    <div class="flex gap-2 items-start p-2 border-b border-outline-variant/10"
-         data-searchable="${esc(c.name)} ${esc(c.role)}">
-      <div class="flex-1 min-w-0 flex flex-col gap-1">
-        <input type="text" value="${esc(c.name)}" placeholder="Name"
-          class="manuscript-input font-label-md py-0.5 w-full"
-          oninput="book.characters[${idx}].name = this.value"/>
-        <input type="text" value="${esc(c.role)}" placeholder="Role / Description"
-          class="manuscript-input font-body-md text-sm py-0.5 w-full text-on-surface-variant"
-          oninput="book.characters[${idx}].role = this.value"/>
-      </div>
-      <button class="material-symbols-outlined text-sm text-outline hover:text-error flex-shrink-0 mt-1" onclick="deleteCharacterEntry(${idx})">delete</button>
-    </div>`).join('');
-}
-
-function addCharacterEntry() {
-  book.characters.push({ id: genId(), name: '', role: '' });
-  renderCharacterList();
-  const inputs = document.getElementById('characters-list').querySelectorAll('input');
-  if (inputs.length) inputs[inputs.length - 2].focus();
-}
-
-function deleteCharacterEntry(idx) {
-  book.characters.splice(idx, 1);
-  renderCharacterList();
-}
-
-// ─── Search / Filter ──────────────────────────────────────────────────────────
-
-function filterList(listId, query) {
-  const q = query.toLowerCase();
-  document.getElementById(listId).querySelectorAll('[data-searchable]').forEach(item => {
-    item.style.display = item.getAttribute('data-searchable').toLowerCase().includes(q) ? '' : 'none';
-  });
 }
 
 // ─── Save / Export ────────────────────────────────────────────────────────────

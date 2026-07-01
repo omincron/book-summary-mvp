@@ -194,36 +194,6 @@
           </div>
         </div>
 
-        <!-- Glossary & Characters -->
-        <div class="mt-stack-lg grid grid-cols-1 md:grid-cols-2 gap-stack-md">
-
-          <!-- Glossary -->
-          <div class="bg-surface-container-low border border-outline-variant/10 p-stack-md ambient-shadow flex flex-col gap-stack-sm">
-            <div class="flex justify-between items-center">
-              <h3 class="font-headline-md text-[20px] text-primary">Glossary</h3>
-              <button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" type="button" onclick="addGlossaryEntry()">add_circle</button>
-            </div>
-            <div class="relative">
-              <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
-              <input id="glossary-search" class="search-input w-full px-8 py-1.5 font-label-sm text-label-sm" placeholder="Search terms..." type="text" oninput="filterList('glossary-list', this.value)" />
-            </div>
-            <div class="zebra-striping flex flex-col mt-2" id="glossary-list"></div>
-          </div>
-
-          <!-- Characters -->
-          <div class="bg-surface-container-low border border-outline-variant/10 p-stack-md ambient-shadow flex flex-col gap-stack-sm">
-            <div class="flex justify-between items-center">
-              <h3 class="font-headline-md text-[20px] text-primary">Characters</h3>
-              <button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" type="button" onclick="addCharacterEntry()">person_add</button>
-            </div>
-            <div class="relative">
-              <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
-              <input id="characters-search" class="search-input w-full px-8 py-1.5 font-label-sm text-label-sm" placeholder="Search cast..." type="text" oninput="filterList('characters-list', this.value)" />
-            </div>
-            <div class="zebra-striping flex flex-col mt-2" id="characters-list"></div>
-          </div>
-        </div>
-
         <!-- Form Actions -->
         <div class="mt-stack-lg flex flex-wrap justify-end gap-stack-md pt-stack-md border-t border-outline-variant/10">
           <button class="px-6 py-3 rounded-full border border-secondary text-secondary font-label-md hover:bg-secondary/5 transition-all" type="button" onclick="exportSingleBook()">

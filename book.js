@@ -64,6 +64,28 @@ function renderChapters(chapters, bookId) {
   }).join('');
 }
 
+function aggregateGlossary(chapters) {
+  const seen = new Map();
+  (chapters || []).forEach(ch => {
+    (ch.glossary || []).forEach(g => {
+      const key = (g.term || '').trim().toLowerCase();
+      if (key && !seen.has(key)) seen.set(key, g);
+    });
+  });
+  return Array.from(seen.values());
+}
+
+function aggregateCharacters(chapters) {
+  const seen = new Map();
+  (chapters || []).forEach(ch => {
+    (ch.characters || []).forEach(c => {
+      const key = (c.name || '').trim().toLowerCase();
+      if (key && !seen.has(key)) seen.set(key, c);
+    });
+  });
+  return Array.from(seen.values());
+}
+
 function renderGlossary(glossary) {
   if (!glossary || !glossary.length) {
     return `<p class="p-4 font-body-md text-on-surface-variant/60 italic">No glossary entries for this book.</p>`;
@@ -162,12 +184,12 @@ function renderBook(book) {
 
         <section class="mb-stack-lg py-stack-lg border-t border-outline-variant/10" id="book-glossary">
           <h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Book Glossary</h2>
-          <div class="space-y-2">${renderGlossary(book.glossary)}</div>
+          <div class="space-y-2">${renderGlossary(aggregateGlossary(book.chapters))}</div>
         </section>
 
         <section class="mb-stack-lg" id="book-characters">
           <h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Characters</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">${renderCharacters(book.characters)}</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">${renderCharacters(aggregateCharacters(book.chapters))}</div>
         </section>
 
       </div>
