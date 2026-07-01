@@ -85,7 +85,7 @@ function renderChapter(book, chapter) {
   // Characters
   const charactersHtml = chapter.characters && chapter.characters.length
     ? `<section class="mb-stack-lg" id="chapter-characters">
-         <h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Dramatis Personae</h2>
+         <h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Characters</h2>
          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
            ${chapter.characters.map(c => `
              <div class="paper-elevation p-6 rounded-lg bg-surface flex gap-4 items-center">
